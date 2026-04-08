@@ -1,12 +1,12 @@
 from fastapi import APIRouter
-from app.controllers.user_controllers import (
+from app.controllers.users.user_controllers import (
     get_users_controller,
     get_user_controller, 
     create_user_controller, 
     update_user_controller, 
     delete_user_controller
 )
-from app.schemas.user_schema import UserCreate, UserUpdate, UserResponse
+from app.schemas.users.user_schema import UserCreate, UserUpdate, UserResponse
 from typing import List
 
 
