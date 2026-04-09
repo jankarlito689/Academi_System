@@ -1,4 +1,5 @@
 from app.models.users.user_models import get_all_users, get_user_by_id, create_user, update_user, delete_user
+from app.utils.crypt_handle import encrypt_password
 
 def list_users():
     return get_all_users()
@@ -10,6 +11,10 @@ def get_user(user_id: int):
     return user
 
 def create_new_user(data: dict):
+    # Encriptar la contraseña antes de guardar
+    if "password" in data:
+        data["password_hash"] = encrypt_password(data.pop("password"))
+    
     user = create_user(data)
     if not user.data:
         raise Exception("User not found")
