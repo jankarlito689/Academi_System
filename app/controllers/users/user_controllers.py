@@ -1,5 +1,6 @@
 #controllers/user_controllers.py
 from app.service.users.user_service import list_users, get_user, create_new_user, update_existing_user, delete_existing_user
+from app.service.users.auth_service import login_user
 from app.utils.exceptions import not_found,server_error
 
 def get_users_controller():
