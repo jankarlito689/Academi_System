@@ -1,6 +1,7 @@
 # app/utils/jwt_handle.py
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from jose import jwt, JWTError
+from typing import Optional
 from fastapi import HTTPException
 from dotenv import load_dotenv
 import os
@@ -15,18 +16,17 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY no está configurada en el .env")
 
 
-def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     """
     Crea un JWT seguro con información del usuario
     """
 
     to_encode = data.copy()
     # ⏳ Expiración
-    expire = datetime.utcnow() + (expires_delta or timedelta(hours=8))
+    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(hours=2))
     # 📌 Claims estándar
     to_encode.update({
         "exp": expire,
-        "iat": datetime.utcnow(),  # issued at
     })
     # 🔐 Generar token
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
