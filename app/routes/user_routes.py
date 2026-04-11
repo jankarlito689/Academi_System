@@ -4,7 +4,7 @@ from app.controllers.users.user_controllers import (
     get_user_controller, 
     create_user_controller, 
     update_user_controller, 
-    delete_user_controller
+    delete_user_controller,
 )
 from app.schemas.users.user_schema import UserCreate, UserUpdate, UserResponse
 from typing import List
