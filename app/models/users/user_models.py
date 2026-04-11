@@ -16,3 +16,6 @@ def update_user(user_id: int, user_data: dict):
 
 def delete_user(user_id: int):
     return supabase.table(TABLE).delete().eq("id", user_id).execute()
+
+def get_user_by_email_academia(email: str, academia_id: int):
+    return supabase.table(TABLE).select("*").eq("email", email).eq("academia_id", academia_id).single().execute()
