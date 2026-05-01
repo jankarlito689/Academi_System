@@ -1,3 +1,4 @@
+#src/app/models/atletas_models.py
 from app.config.BD import supabase
 
 TABLE = "atletas"
