@@ -3,7 +3,8 @@ from app.models.atletas_models import (
     get_atletas_by_academia_id,
     create_atleta,
     update_atleta,
-    delete_atleta
+    delete_atleta,
+    search_atletas_by_name
 )
 
 from app.utils.exceptions import not_found, bad_request
@@ -22,6 +23,15 @@ async def get_atleta(atleta_id: int, academia_id: int):
 # ✅ Listar atletas por academia
 async def List_atletas(academia_id: int):
     response = get_atletas_by_academia_id(academia_id)
+    if not response.data:
+        raise not_found("No se encontraron atletas para esta academia")
+    return response.data
+
+# ✅ Buscar atletas por nombre
+async def search_atletas(nombre: str, academia_id: int):
+    response = search_atletas_by_name(nombre, academia_id)
+    if not response.data:
+        raise not_found("No se encontraron atletas con ese nombre")
     return response.data
 
 # ✅ Crear atleta

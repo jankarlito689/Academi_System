@@ -3,7 +3,8 @@ from app.service.atletas_services import (
     get_atleta, 
     create_new_atleta, 
     update_existing_atleta, 
-    delete_existing_atleta
+    delete_existing_atleta,
+    search_atletas
 )
 from app.utils.exceptions import not_found, server_error
 
@@ -20,6 +21,13 @@ async def get_atleta_controller(atleta_id: int, academia_id: int):
         return await get_atleta(atleta_id, academia_id)
     except Exception as e:
         raise not_found(f"Atleta not found: {str(e)}")
+
+# ✅ SEARCH
+async def search_atletas_controller(nombre: str, academia_id: int):
+    try:
+        return await search_atletas(nombre, academia_id)
+    except Exception as e:
+        raise not_found(f"Atletas not found: {str(e)}")
 
 # ✅ CREATE
 async def create_atleta_controller(data):
