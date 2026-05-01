@@ -8,7 +8,7 @@ from app.service.atletas_services import (
 )
 from app.utils.exceptions import not_found, server_error
 
-# ✅ GET ALL
+# ✅ GET atletas por academia
 async def get_atletas_controller(academia_id: int):
     try:
         return await List_atletas(academia_id)

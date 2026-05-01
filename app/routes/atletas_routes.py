@@ -12,9 +12,9 @@ from app.middlewares.session import check_jwt
 
 router = APIRouter(prefix="/atletas", tags=["Atletas"])
 
-# ✅ GET ALL
+# ✅ GET atletas por academia
 @router.get("/", response_model=list[AtletaResponse])
-async def get_atletas(user=Depends(check_jwt)):
+async def get_atletas(academia_id: int, user=Depends(check_jwt)):
     academia_id = user["academia_id"]
     return await get_atletas_controller(academia_id)
 
