@@ -10,6 +10,9 @@ class LoginResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
 
+class LogoutResponse(BaseModel):
+    message: str = "Logged out successfully"
+
 class TokenPayload(BaseModel):
     academia_id: int
     email: EmailStr
