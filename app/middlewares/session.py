@@ -9,23 +9,19 @@ async def check_jwt(request: Request):
     """
 
     auth_header = request.headers.get("Authorization")
-
     if not auth_header:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Token no proporcionado"
         )
-
     try:
         # Formato esperado: Bearer <token>
         scheme, token = auth_header.split()
-
         if scheme.lower() != "bearer":
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Formato de token inválido"
             )
-
         payload = verify_token(token)
 
         if not payload:
@@ -33,9 +29,7 @@ async def check_jwt(request: Request):
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Token inválido"
             )
-
         return payload  # 👈 importante (lo puedes usar en la ruta)
-
     except ValueError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
