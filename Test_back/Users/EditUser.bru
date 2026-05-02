@@ -1,0 +1,22 @@
+meta {
+  name: EditUser
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://127.0.0.1:8000/users/12
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Cesar Suarez"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

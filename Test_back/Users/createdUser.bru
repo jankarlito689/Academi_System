@@ -1,0 +1,27 @@
+meta {
+  name: createdUser
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://127.0.0.1:8000/users/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Miguel Angel",
+    "email": "Miguel@pruebas.com",
+    "password":"superContraseña",
+    "phone": "3345656735",
+    "rol": "Admin",
+    "academia_id": 4
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

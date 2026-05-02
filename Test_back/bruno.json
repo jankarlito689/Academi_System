@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Academy_system",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

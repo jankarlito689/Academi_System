@@ -1,0 +1,24 @@
+meta {
+  name: ObtenerAtleta
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://127.0.0.1:8000/atletas/?academia_id=3
+  body: none
+  auth: bearer
+}
+
+params:query {
+  academia_id: 3
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTQiLCJlbWFpbCI6IkNhcmxvc0BwcnVlYmFzLmNvbSIsImFjYWRlbWlhX2lkIjozLCJyb2wiOiJBZG1pbiIsImV4cCI6MTc3Nzc1NDAwNX0.kQqLfAXvvNJfHcTdq0FehQKa7rnVxFM-zbAezx3kCQ0
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

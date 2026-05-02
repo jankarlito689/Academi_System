@@ -1,0 +1,33 @@
+meta {
+  name: CreateAtleta
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:8000/atletas/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTUiLCJlbWFpbCI6Ik1pZ3VlbEBwcnVlYmFzLmNvbSIsImFjYWRlbWlhX2lkIjo0LCJyb2wiOiJBZG1pbiIsImV4cCI6MTc3Nzc1MjQ5M30.SaVlomsTH_fDJ4nZDMIJqJ7Lo0mkBlh9KV_uRqV6mu4
+}
+
+body:json {
+  {
+    "academia_id": "4",
+    "nombre": "Diego Lopez",
+    "telefono": "5542131074",
+    "fecha_nacimiento": "2010-04-04",
+    "estado": "activo",
+    "tipo": "recreativo",
+    "email": "Diego25@Pruebas.com",
+    "categoria": "u17"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
